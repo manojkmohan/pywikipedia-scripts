@@ -13,10 +13,10 @@ import codecs
 
 siteFamily	= 'wikisource'
 siteLangCode	= 'ml'
-indexPage       = ur'Vancheeshageethi.djvu' #ഇൻഡെക്സ് താളിന്റെ പേര്. 
-myNumber = 14
+indexPage       = ur'' #ഇൻഡെക്സ് താളിന്റെ പേര് രണ്ട് ' 'ന്റെ ഇടയിൽ കൊടുക്കുക. 
+myNumber = #സൂചികാതാളുകളിലെ പേജുകളുടെ എണ്ണം കൊടുക്കുക
 pageNamespaceId = 106
-resultPage      = ur'user:Balasankarc/test' 
+resultPage      = ur'' #ഫലം സൂക്ഷിക്കേണ്ട താളിന്റെ പേര് രണ്ട് ' 'ന്റെ ഇടയിൽ കൊടുക്കുക. 
 
 wikiSite = wikipedia.Site(code=siteLangCode, fam=siteFamily)
 myResultPage=wikipedia.Page(site=wikiSite,title=resultPage)
