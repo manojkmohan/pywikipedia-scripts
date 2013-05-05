@@ -27,7 +27,7 @@ for i in range(1,myNumber+1):
 	myPage=wikipedia.Page(site=wikiSite,title=myTitle)
 	try:			#ഇനി പണ്ടാരമടങ്ങാൻ ഒരു ടൈപ്പ് ചെയ്യാത്ത പേജ് എങ്ങാനും വന്നുപെട്ടാലോ?
 		myText = myPage.get()	#അങ്ങനെ ഉണ്ടെങ്കിൽ ലിവൻ എറർ കാണിക്കും. അതൊഴിവാക്കാനാണ് ആ try
-		myResultPage.append(myText)
+		myResultPage.append(myText,comment=ur"ടെക്സ്റ്റ് വേർതിരിച്ചെടുക്കുന്നു")
 		wikipedia.output(myPage.title())
 	except:			#അങ്ങനെ ഉണ്ടെങ്കിൽ ഇങ്ങോട്ട് ചാടിക്കോളും
 		continue	#ആ പേജ് മൈൻഡ് ചെയ്യണ്ട
