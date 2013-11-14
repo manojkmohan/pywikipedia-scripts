@@ -1,4 +1,4 @@
-﻿#!/usr/bin/python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 """
@@ -20,12 +20,12 @@ import codecs
 
 #പ്രധാന പ്രോഗ്രാം ഇവിടെ തുടങ്ങുന്നു. 
 #ആവശ്യത്തിനനുസരിച്ച് മാറ്റങ്ങൾ ഇതിനു താഴെ വരുത്തുക
-siteFamily	= 'wikisource'
-siteLangCode	= 'ml'
-workingPage	= ur'കിരണാവലി'           #ഏതു താളിൽ പണിചെയ്യണം?
-indexPage       = ur'കിരണാവലി.djvu' #ഇൻഡെക്സ് താളിന്റെ പേര്. ഇതുപയോഗിച്ചുതന്നെ പേജ് മേഖലയും പ്രോഗ്രാം സ്വയം പരിശോധിക്കും.
+siteFamily        = 'wikisource'
+siteLangCode        = 'ml'
+workingPage        = ur'ജ്യോതിഷവും_ജ്യോതിശ്ശാസ്ത്രവും'           #ഏതു താളിൽ പണിചെയ്യണം?
+indexPage       = ur'Jyothishavum_Jyothisasthravum.djvu' #ഇൻഡെക്സ് താളിന്റെ പേര്. ഇതുപയോഗിച്ചുതന്നെ പേജ് മേഖലയും പ്രോഗ്രാം സ്വയം പരിശോധിക്കും.
 pageNamespaceId = 106                 #വിക്കിഗ്രന്ഥശാലയിലെ താൾ മേഖലയുടെ വിലാസം - ഇതിൽ മാറ്റം വരുത്തേണ്ടതില്ല.
-resultPage      = ur'user:vssun/test' #ഫലം എവിടെത്തരണം?
+resultPage      = ur'user:Manojk/KSSP' #ഫലം എവിടെത്തരണം?
 
 #ആവശ്യത്തിനനുസരിച്ച് മാറ്റങ്ങൾ ഇതിനു മുകളിൽ വരുത്തുക
 
@@ -38,8 +38,8 @@ myUsers = myPage.contributingUsers()
 
 #പ്രധാനതാളിന്റെ ഉപതാളുകളിലെ സംശോധകരെ പരിശോധിക്കുന്നു.
 for myPage in pagegenerators.PrefixingPageGenerator(workingPage+"/"):
-	myUsers = myUsers.union(myPage.contributingUsers())
-	wikipedia.output(myPage.title())
+        myUsers = myUsers.union(myPage.contributingUsers())
+        wikipedia.output(myPage.title())
 
 #സൂചികാതാളിലെ സംശോധകരെ പരിശോധിക്കുന്നു.
 myPage = wikipedia.Page(site=wikiSite,title="index:"+indexPage)
@@ -49,18 +49,16 @@ myUsers = myUsers.union(myPage.contributingUsers())
 
 #താളുകളിലെ സംശോധകരെ പരിശോധിക്കുന്നു.
 for myPage in pagegenerators.PrefixingPageGenerator(indexPage+"/",namespace=pageNamespaceId):
-	myUsers = myUsers.union(myPage.contributingUsers())
-	wikipedia.output(myPage.title())
+        myUsers = myUsers.union(myPage.contributingUsers())
+        wikipedia.output(myPage.title())
 
 wikipedia.output(str(myUsers))
 
 #ഫലം വിക്കിയിലേക്കെഴുതാൻ
 myResultText=ur""
 for myUser in myUsers:
-	myResultText=myResultText+"*[[user:"+myUser+"]]\n"
-	wikipedia.output(myUser)
+        myResultText=myResultText+"*[[user:"+myUser+"]]\n"
+        wikipedia.output(myUser)
 myResultPage=wikipedia.Page(site=wikiSite,title=resultPage)
 myResultPage.put(myResultText,comment=ur"സംശോധകരുടെ പട്ടിക")
 wikipedia.stopme()
-
-
